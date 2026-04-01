@@ -3,7 +3,16 @@
 #include <string>
 #include <vector>
 
-class lexer {
+struct token {
+
+};
+enum class token_t {
 	
+};
+class lexer {
+private:
+	static const std::vector<std::string> keyword_list;
+public:
+	lexer(); 
 };
 #endif
