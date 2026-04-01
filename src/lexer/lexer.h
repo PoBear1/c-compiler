@@ -1,26 +1,24 @@
 #ifndef _C_COMPILER_LEXER_
 #define _C_COMPILER_LEXER_
+#include <lib/token.h>
 #include <string>
 #include <vector>
 
-struct token {
-	std::string tok;
-	token_t ttype;
-};
-enum class token_t {
-	ID, KEYWORD, CONST, OP, 
-	OP_PAREN, CL_PAREN,
-	OP_BLOCK, CL_BLOCK,
-	OP_BRACE, CL_BRACE,
-	SEMICOLON
-};
 class lexer {
-private:
-	inline static const std::vector<std::string> keyword_list = {
-		"auto", "break", "case", "char", "const", "continue", "default", "do", "double", "else", "enum", "extern", "float", "for", "goto", "if", "inline", "int", "long", "register", "restrict", "return", "short", "signed", "sizeof", "static", "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"
-	};
 public:
-	lexer(); 
-
+	// lexer(std::string);
+	int run_lexer(std::string);
+	const std::vector<token>& tokened_code() {return v;}
+private:
+	std::vector<token> v;
+	int match_single_char(char c);
+	int isword(char c);
+#define num_keywords 3
+	const std::string keywords[num_keywords] = {
+		std::string("int"),
+		std::string("void"),
+		std::string("return")
+	};
 };
+
 #endif

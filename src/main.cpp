@@ -34,10 +34,15 @@ int main(int argc, char** argv) {
 		// std::printf("\033[1;47;35mTexting\033[0m\t\t");
 		// std::printf("\t\t");
 		// std::printf("\n");
-		std::cout << "pc: error: no file given" << std::endl;
+		std::cout << "pc: \x1B[31merror\033[0m: no file given" << std::endl;
 		return -1;
 	} else {}
 	std::string fin, filename;
+	if(argc == 2) {
+		fin = argv[1];
+		filename = argv[1];
+	}
+	std::system(("clang++ " + fin + "").c_str());
 	std::system(("as -s " + filename + ".s -o" + filename + ".o").c_str());
 	std::system(("clang++ " + filename + ".o -o" + filename).c_str());
 	return 0;

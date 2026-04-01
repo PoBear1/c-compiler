@@ -5,7 +5,7 @@ all: $(objects)
 	chmod +x pc 
 
 CXX = clang++
-CXXFLAGS = -std=c++20 -stdlib=libc++ -O2 -Wall -fcolor-diagnostics -fansi-escape-codes
+CXXFLAGS = -std=c++20 -stdlib=libc++ -O2 -Wall -fcolor-diagnostics -fansi-escape-codes -I./src
 
 %.o: %.cpp
 	$(CXX) -c $(CXXFLAGS) $^ -o $@

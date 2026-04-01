@@ -1,0 +1,9 @@
+#ifndef MINIC_ERROR_CODES_H
+#define MINIC_ERROR_CODES_H
+
+#define LEX_SUCCESS			0
+#define LEX_UNKNOWN_TOKEN	1
+#define PARSE_SUCCESS		0
+
+
+#endif
